@@ -2,11 +2,13 @@
 
 A proof-of-concept to be notified via RSS when one of your pledged creators on Patreon makes a new public/exclusive post.
 
-This is only a proof-of-concept because I don't believe it's currently possible to list recent posts from a creator outside of Patreon's mobile/web clients.
+This is only a proof-of-concept because I haven't found a way to reliably list recent posts from a creator outside of Patreon's mobile/web clients.
 
-- The public API returns all the necessary data, but it's behind Cloudflare.
+- The public API returns all the necessary data, but it's behind Cloudflare's scraping/bot protection.
 - The developer API is creator-oriented, and doesn't support listing posts for campaigns the authenticated user didn't create. \
   _As of June 2020, this API is not actively maintained, so I'm skeptical of this becoming a feature any time soon._
+
+Since exclusive content in posts is not publicly visible, readers can only show a placeholder. You'll need to open the link in Patreon's web client to see the complete post.
 
 ## Setup
 
