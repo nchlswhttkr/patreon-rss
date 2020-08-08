@@ -44,7 +44,7 @@ vc --prod -e PATREON_CLIENT_ID=<client-id> -e PATREON_CLIENT_SECRET=<client-secr
 
 Visit your deployment now, and you'll be redirected to grant permissions to your application in Patreon.
 
-After approving and being redirected, your browser will download your `pledged-creators.opml` file. You can see a sample OPML file in [`./sample-files/pledged-creators.opml`](./sample-files/pledged-creators.ompl).
+After approving and being redirected, your browser will download your `pledged-creators.opml` file. You can see a sample OPML file in [`./sample-files/pledged-creators.opml`](./sample-files/pledged-creators.opml).
 
 If you pledge to a new creator in future, just go through the auth flow again to get a new OPML file.
 
