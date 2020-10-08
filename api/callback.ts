@@ -26,10 +26,10 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   let opml = `<opml version="1.1">
 <body>
-<outline text="Patreon Creators" title="Patreon Creators">
+<outline text="Patreon" title="Patreon">
 `;
   for (let campaign of campaigns) {
-    opml += `<outline text="${campaign.name}" title="${campaign.name}" type="rss" xmlUrl="${process.env["BASE_URL"]}api/feed/${campaign.id}" />`;
+    opml += `<outline text="${campaign.name}" title="${campaign.name}" type="rss" xmlUrl="${process.env["BASE_URL"]}api/feeds/${campaign.id}" />`;
   }
   opml += `
 </body>
