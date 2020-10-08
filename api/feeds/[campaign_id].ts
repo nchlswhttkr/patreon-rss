@@ -24,7 +24,10 @@ export default async (req: NowRequest, res: NowResponse) => {
 <item>
     <title>${sanitise(post.attributes.title)}</title>
     <link>${post.attributes.url}</link>
-    <description>${sanitise(post.attributes.content || "")}</description>
+    <description>${sanitise(
+      post.attributes.content ||
+        `This post is exclusive to ${title} patrons, you can view it on <a href="${post.attributes.url}">Patreon</a>.`
+    )}</description>
     <guid>${post.attributes.url}</guid>
     <pubDate>${post.attributes.published_at}</pubDate>
 </item>
@@ -36,6 +39,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 `;
 
   res.setHeader("Content-Type", "text/xml");
+  res.setHeader("Cache-Control", "s-maxage=3600");
   res.send(rss);
 };
 
