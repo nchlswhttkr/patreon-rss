@@ -2,8 +2,13 @@ import { NowRequest, NowResponse } from "@vercel/node";
 import got from "got";
 
 export default async (req: NowRequest, res: NowResponse) => {
+  // optionally filter to show only unlocked tiers, but keep patron/public posts
+  const filter_by_tier_id = req.query.tier_id
+    ? `&filter[all_patrons]=true&filter[is_public]=true&filter[tier_id]=${req.query.tier_id}`
+    : "";
+
   // prettier-ignore
-  const { data, included } = await got(`https://www.patreon.com/api/posts?filter[campaign_id]=${req.query.campaign_id}&filter[contains_exclusive_posts]=true&sort=-published_at`).json()
+  const { data, included } = await got(`https://www.patreon.com/api/posts?filter[campaign_id]=${req.query.campaign_id}&filter[contains_exclusive_posts]=true&sort=-published_at` + filter_by_tier_id).json()
 
   // TODO Confirm the creator is the first returned user, otherwise wrong name
   const title = included.find((i) => i.type === "user").attributes.full_name;
