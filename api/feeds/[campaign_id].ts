@@ -44,7 +44,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 `;
 
   res.setHeader("Content-Type", "text/xml");
-  res.setHeader("Cache-Control", "s-maxage=3600");
+  res.setHeader("Cache-Control", "s-maxage=14400"); // 4 hours
   res.send(rss);
 };
 
