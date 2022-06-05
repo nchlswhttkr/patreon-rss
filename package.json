@@ -1,9 +1,11 @@
 {
-  "name": "patreon-rss-poc",
+  "name": "patreon-rss",
   "version": "1.0.0",
   "license": "MIT",
   "dependencies": {
-    "@vercel/node": "^1.7.4",
     "got": "^11.5.1"
+  },
+  "engines": {
+    "node": "^16.0.0"
   }
 }

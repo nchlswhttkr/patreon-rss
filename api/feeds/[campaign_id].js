@@ -1,7 +1,6 @@
-import { NowRequest, NowResponse } from "@vercel/node";
 import got from "got";
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (req, res) => {
   // optionally filter to show only unlocked tiers, but keep patron/public posts
   const filter_by_tier_id = req.query.tier_id
     ? `&filter[all_patrons]=true&filter[is_public]=true&filter[tier_id]=${req.query.tier_id}`
@@ -49,7 +48,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 };
 
 // Some fields are not sanitised for XML, and include dangerous characters
-function sanitise(text: String) {
+function sanitise(text) {
   return text
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
